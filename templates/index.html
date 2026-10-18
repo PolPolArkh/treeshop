@@ -21,23 +21,23 @@
 
         <main class="main">
             
-            <!-- ВЕРХНЯЯ ПАНЕЛЬ С КНОПКАМИ -->
+
             <div class="topbar" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
                 <h1>Главная</h1>
                 <div class="auth-buttons" style="display: flex; gap: 12px;">
                     {% if is_auth %}
-                        <!-- Если пользователь вошел -->
+
                         <a href="/account" style="color: #205935; text-decoration: none; font-weight: 600; padding: 10px 20px; border-radius: 8px; border: 1px solid #205935; transition: background 0.2s;">Мой аккаунт</a>
                         <a href="/logout" style="color: #d64545; text-decoration: none; font-weight: 600; padding: 10px 20px; border-radius: 8px; border: 1px solid #d64545; transition: background 0.2s;">Выйти</a>
                     {% else %}
-                        <!-- Если пользователь не вошел -->
+                        
                         <a href="/login" style="color: #205935; text-decoration: none; font-weight: 600; padding: 10px 20px; border-radius: 8px; border: 1px solid #205935; transition: background 0.2s;">Войти</a>
                         <a href="/register" class="btn-buy" style="text-decoration: none; padding: 10px 20px; width: auto; display: inline-block;">Регистрация</a>
                     {% endif %}
                 </div>
             </div>
 
-            <!-- БАННЕР (HERO) -->
+
             <section class="hero">
                 <h1>Деревья для сада и участка</h1>
                 <p>Мы - питомник Treestore. Выращиваем и продаём саженцы плодовых и декоративных деревьев с доставкой по всей России.</p>
