@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Treestore - главная</title>
+    <link rel="stylesheet" href="/static/style1.css">
+</head>
+<body>
+    <div class="app">
+
+        <aside class="sidebar">
+            <div class="logo">Treestore</div>
+            <nav class="menu">
+                <a href="/" class="menu-item active">Главная</a>
+                <a href="/catalog" class="menu-item">Каталог</a>
+                <a href="/cart" class="menu-item">Корзина</a>
+                <a href="/search" class="menu-item">Поиск</a>
+            </nav>
+        </aside>
+
+        <main class="main">
+            
+            <!-- ВЕРХНЯЯ ПАНЕЛЬ С КНОПКАМИ -->
+            <div class="topbar" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h1>Главная</h1>
+                <div class="auth-buttons" style="display: flex; gap: 12px;">
+                    {% if is_auth %}
+                        <!-- Если пользователь вошел -->
+                        <a href="/account" style="color: #205935; text-decoration: none; font-weight: 600; padding: 10px 20px; border-radius: 8px; border: 1px solid #205935; transition: background 0.2s;">Мой аккаунт</a>
+                        <a href="/logout" style="color: #d64545; text-decoration: none; font-weight: 600; padding: 10px 20px; border-radius: 8px; border: 1px solid #d64545; transition: background 0.2s;">Выйти</a>
+                    {% else %}
+                        <!-- Если пользователь не вошел -->
+                        <a href="/login" style="color: #205935; text-decoration: none; font-weight: 600; padding: 10px 20px; border-radius: 8px; border: 1px solid #205935; transition: background 0.2s;">Войти</a>
+                        <a href="/register" class="btn-buy" style="text-decoration: none; padding: 10px 20px; width: auto; display: inline-block;">Регистрация</a>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- БАННЕР (HERO) -->
+            <section class="hero">
+                <h1>Деревья для сада и участка</h1>
+                <p>Мы - питомник Treestore. Выращиваем и продаём саженцы плодовых и декоративных деревьев с доставкой по всей России.</p>
+            </section>
+
+            <section class="about">
+                <h2>О проекте</h2>
+                <p>Treestore - это семейный питомник, который работает с 2026 года. Мы сами выращиваем саженцы, следим за их здоровьем и приживаемостью, а затем бережно отправляем их к вам. В каталоге более 28 сортов: от классических яблонь до редких декоративных видов.</p>
+            </section>
+
+            <section class="services">
+                <h2>Наши услуги</h2>
+
+                <ul class="service-list">
+                    <li>
+                        <h3>Продажа саженцев</h3>
+                        <p>Более 28 сортов плодовых и декоративных деревьев с закрытой корневой системой.</p>
+                    </li>
+                    <li>
+                        <h3>Доставка по России</h3>
+                        <p>Бережная упаковка и отправка транспортной компанией в любой регион страны.</p>
+                    </li>
+                    <li>
+                        <h3>Посадка под ключ</h3>
+                        <p>Привезём, выкопаем яму, посадим и дадим рекомендации по уходу за деревом.</p>
+                    </li>
+                    <li>
+                        <h3>Консультация агронома</h3>
+                        <p>Поможем выбрать сорт под ваш климат, а также расскажем, как ухаживать за садом.</p>
+                    </li>
+                    <li>
+                        <h3>Гарантия приживаемости</h3>
+                        <p>Если саженец не прижился в первый год - заменим его бесплатно.</p>
+                    </li>
+                    <li>
+                        <h3>Подарочные сертификаты</h3>
+                        <p>Оригинальный подарок для садоводов - от 1 500 ₽ на любой вкус.</p>
+                    </li>
+                </ul>
+            </section>
+
+            <footer class="contacts">
+                <h2>Свяжитесь с нами</h2>
+                <p>Позвоните, напишите или приезжайте в питомник - мы всегда рады помочь.</p>
+
+                <div class="contacts-bar">
+                    <div class="contact-item">
+                        <span class="contact-label">Телефон</span>
+                        <a href="tel:+79001234567">+7 (900) 123-45-67</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">Email</span>
+                        <a href="mailto:bag@treestore.ru">bag@treestore.ru</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">Адрес</span>
+                        <span>г. Москва, Харьковский проезд, д. 5</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">Telegram</span>
+                        <a href="#">@treestore</a>
+                    </div>
+                </div>
+
+                <p class="copyright">© Treestore 2026</p>
+            </footer>
+            
+        </main>
+    </div>
+</body>
+</html>

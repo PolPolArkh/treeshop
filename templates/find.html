@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Treestore — поиск</title>
+    <link rel="stylesheet" href="/static/style1.css">
+</head>
+<body>
+    <div class="app">
+
+        <aside class="sidebar">
+            <div class="logo">Treestore</div>
+            <nav class="menu">
+                <a href="/" class="menu-item">Главная</a>
+                <a href="/catalog" class="menu-item">Каталог</a>
+                <a href="/cart" class="menu-item">Корзина</a>
+                <a href="/search" class="menu-item active">Поиск</a>
+            </nav>
+        </aside>
+
+        <main class="main">
+            <div class="topbar">
+                <h1>Поиск по каталогу</h1>
+            </div>
+
+            <form class="search-form">
+                <input type="search" placeholder="Введите название дерева..." class="search-input">
+                <button type="submit" class="search-btn">Найти</button>
+            </form>
+
+            <div class="search-filters">
+                <span class="filter-label">Фильтры:</span>
+                <button type="button" class="filter-chip active">Все</button>
+                <button type="button" class="filter-chip">Плодовые</button>
+                <button type="button" class="filter-chip">Хвойные</button>
+                <button type="button" class="filter-chip">Декоративные</button>
+                <button type="button" class="filter-chip">Лиственные</button>
+            </div>
+
+            <div class="search-results">
+                <p class="results-count">Найдено: 4 товара</p>
+
+                <div class="catalog">
+
+                    <div class="product-card">
+                        <img src="/static/image/apple.jpg" alt="Яблоня Недзвецкого">
+                        <h3>Яблоня Недзвецкого</h3>
+                        <p class="desc">Декоративный вид · 3 года · 2 м</p>
+                        <p class="price">2 200 ₽</p>
+                        <button class="btn-buy">В корзину</button>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="/static/image/spruce.jpg" alt="Ель обыкновенная">
+                        <h3>Ель обыкновенная</h3>
+                        <p class="desc">Хвойная · 4 года · 1,5 м</p>
+                        <p class="price">1 800 ₽</p>
+                        <button class="btn-buy">В корзину</button>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="/static/image/birch.jpg" alt="Берёза повислая">
+                        <h3>Берёза повислая</h3>
+                        <p class="desc">Лиственная · 5 лет · 3 м</p>
+                        <p class="price">2 400 ₽</p>
+                        <button class="btn-buy">В корзину</button>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="/static/image/maple.jpg" alt="Клён Глобозум">
+                        <h3>Клён Глобозум</h3>
+                        <p class="desc">Декоративный · 5 лет · 3 м</p>
+                        <p class="price">3 100 ₽</p>
+                        <button class="btn-buy">В корзину</button>
+                    </div>
+                    
+                </div>
+            </div>
+            <footer class="contacts">
+                <div class="contacts-bar">
+                    <div class="contact-item">
+                        <span class="contact-label", style="color: white;">Телефон</span>
+                        <a href="tel:+79001234567", style="color: white;">+7 (900) 123-45-67</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label", style="color: white;">Email</span>
+                        <a href="mailto:bag@treestore.ru", style="color: white;">bag@treestore.ru</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label", style="color: white;">Адрес</span>
+                        <span style="color: white;">г. Москва, Харьковский проезд, д. 5</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label", style="color: white;">Telegram</span>
+                        <a href="#", style="color: white;">@treestore</a>
+                    </div>
+                </div>
+                <p class="copyright", style="color: white;">© Treestore 2026</p>
+            </footer>
+        </main>
+    </div>
+</body>
+</html>

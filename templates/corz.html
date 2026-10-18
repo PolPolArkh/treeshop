@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Корзина</title>
+    <link rel="stylesheet" href="/static/style1.css">
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="logo">Treestore</div>
+            <nav class="menu">
+                <a href="/" class="menu-item">Главная</a>
+                <a href="/catalog" class="menu-item">Каталог</a>
+                <a href="/cart" class="menu-item active">Корзина</a>
+                <a href="/search" class="menu-item">Поиск</a>
+            </nav>
+        </aside>
+
+        <main class="main">
+            <h1>Корзина</h1>
+
+            <div style="margin-top: 20px;">
+                {% for p in products %}
+                    <div style="background: white; padding: 20px; border-radius: 10px; margin-bottom: 10px; display: flex; justify-content: space-between;">
+                        <div>
+                            <h3>{{ p.name }}</h3>
+                            <p>Цена: {{ p.price }} руб.</p>
+                        </div>
+                    </div>
+                {% else %}
+                    <p>В корзине пока ничего нет.</p>
+                {% endfor %}
+            </div>
+
+            {% if products %}
+                <div style="background: white; padding: 20px; border-radius: 10px; margin-top: 20px;">
+                    <h2>Итого: {{ total_price }} руб.</h2>
+                    <a href="/clear-cart" style="display: inline-block; margin-top: 10px; color: red;">Очистить корзину</a>
+                </div>
+            {% endif %}
+
+        </main>
+    </div>
+</body>
+</html>

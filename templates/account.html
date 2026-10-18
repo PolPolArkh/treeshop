@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Личный кабинет</title>
+    <link rel="stylesheet" href="/static/style1.css">
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="logo">Treestore</div>
+            <nav class="menu">
+                <a href="/" class="menu-item">Главная</a>
+                <a href="/catalog" class="menu-item">Каталог</a>
+                <a href="/cart" class="menu-item">Корзина</a>
+                <a href="/search" class="menu-item">Поиск</a>
+                <div style="margin-top: auto; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
+                    <a href="/account" class="menu-item active" style="text-align: center; background: rgba(255,255,255,0.1);">Мой аккаунт</a>
+                </div>
+            </nav>
+        </aside>
+        <main class="main">
+            <div class="topbar" style="display: flex; justify-content: space-between;">
+                <h1>Личный кабинет</h1>
+                <a href="/logout" style="color: #d64545; text-decoration: none; font-weight: 600; padding: 10px 20px; border: 1px solid #d64545; border-radius: 8px;">Выйти</a>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px;">
+                <div style="background: #fff; border-radius: 16px; padding: 30px;">
+                    <h2 style="color: #205935; margin-bottom: 20px; font-size: 20px;">Личные данные</h2>
+                    <p style="font-size: 18px; margin-bottom: 10px;"><b>Имя:</b> {{ user.full_name }}</p>
+                    <p style="font-size: 18px; margin-bottom: 10px;"><b>Телефон:</b> {{ user.phone }}</p>
+                    <p style="font-size: 18px; margin-bottom: 10px;"><b>Email:</b> {{ user.email }}</p>
+                </div>
+                
+                <div style="background: #fff; border-radius: 16px; padding: 30px;">
+                    <h2 style="color: #205935; margin-bottom: 20px; font-size: 20px;">Статус</h2>
+                    <p style="font-size: 18px; margin-bottom: 10px;"><b>Дата регистрации:</b> {{ user.created_at.strftime('%d.%m.%Y') }}</p>
+                    <div style="margin-top: 15px; padding: 10px; background: #e8f5e9; border-radius: 8px; color: #205935;">
+                        ✓ Аккаунт активен
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

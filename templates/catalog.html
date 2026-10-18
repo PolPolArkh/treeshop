@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Treestore — каталог</title>
+    <link rel="stylesheet" href="/static/style1.css">
+</head>
+<body>
+    <div class="app">
+
+        <aside class="sidebar">
+            <div class="logo">Treestore</div>
+            <nav class="menu">
+                <a href="/" class="menu-item">Главная</a>
+                <a href="/catalog" class="menu-item active">Каталог</a>
+                <a href="/cart" class="menu-item">Корзина</a>
+                <a href="/search" class="menu-item">Поиск</a>
+            </nav>
+        </aside>
+
+        <main class="main">
+            <div class="topbar">
+                <h1>Каталог деревьев</h1>
+            </div>
+
+            <div class="catalog-list">
+                {% for p in products %}
+                <div class="product-card">
+                    {% if p.image_url %}
+                        <img src="{{ p.image_url }}" alt="{{ p.name }}">
+                    {% else %}
+                        <img src="/static/image/placeholder.jpg" alt="{{ p.name }}">
+                    {% endif %}
+                    <div class="product-info">
+                        <h3>{{ p.name }}</h3>
+                        <p class="desc">
+                            {{ p.description or "Описание скоро появится." }}
+                        </p>
+                        {% if p.height_cm or p.age_years %}
+                        <p class="meta">
+                            {% if p.age_years %}Возраст: {{ p.age_years }} г.{% endif %}
+                            {% if p.height_cm %} · Высота: {{ p.height_cm }} см{% endif %}
+                        </p>
+                        {% endif %}
+                    </div>
+                    <div class="product-buy">
+                        <p class="price">{{ "{:,.0f}".format(p.price).replace(",", " ") }} ₽</p>
+                        <a href="/add-to-cart/{{ p.id }}" class="btn-buy" style="display: block; text-align: center; text-decoration: none;">В корзину</a>
+                    </div>
+                </div>
+                {% else %}
+                <p class="empty">В каталоге пока нет товаров.</p>
+                {% endfor %}
+            </div>
+
+            <footer class="contacts">
+                <div class="contacts-bar">
+                    <div class="contact-item">
+                        <span class="contact-label" style="color: white;">Телефон</span>
+                        <a href="tel:+79001234567" style="color: white;">+7 (900) 123-45-67</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label" style="color: white;">Email</span>
+                        <a href="mailto:bag@treestore.ru" style="color: white;">bag@treestore.ru</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label" style="color: white;">Адрес</span>
+                        <span style="color: white;">г. Москва, Харьковский проезд, д. 5</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label" style="color: white;">Telegram</span>
+                        <a href="#" style="color: white;">@treestore</a>
+                    </div>
+                </div>
+                <p class="copyright" style="color: white;">© Treestore 2026</p>
+            </footer>
+        </main>
+    </div>
+</body>
+</html>
