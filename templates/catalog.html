@@ -8,7 +8,6 @@
 </head>
 <body>
     <div class="app">
-
         <aside class="sidebar">
             <div class="logo">Treestore</div>
             <nav class="menu">
@@ -18,7 +17,6 @@
                 <a href="/search" class="menu-item">Поиск</a>
             </nav>
         </aside>
-
         <main class="main">
             <div class="topbar">
                 <h1>Каталог деревьев</h1>
@@ -26,7 +24,9 @@
 
             <div class="catalog-list">
                 {% for p in products %}
-                <div class="product-card">
+                <div class="product-card"
+                     onclick="location.href='/product/{{ p.id }}'"
+                     style="cursor: pointer;">
                     {% if p.image_url %}
                         <img src="{{ p.image_url }}" alt="{{ p.name }}">
                     {% else %}
@@ -46,35 +46,18 @@
                     </div>
                     <div class="product-buy">
                         <p class="price">{{ "{:,.0f}".format(p.price).replace(",", " ") }} ₽</p>
-                        <a href="/add-to-cart/{{ p.id }}" class="btn-buy" style="display: block; text-align: center; text-decoration: none;">В корзину</a>
+                        <a href="/add-to-cart/{{ p.id }}"
+                           class="btn-buy"
+                           onclick="event.stopPropagation();"
+                           style="display: block; text-align: center; text-decoration: none;">
+                           В корзину
+                        </a>
                     </div>
                 </div>
                 {% else %}
                 <p class="empty">В каталоге пока нет товаров.</p>
                 {% endfor %}
             </div>
-
-            <footer class="contacts">
-                <div class="contacts-bar">
-                    <div class="contact-item">
-                        <span class="contact-label" style="color: white;">Телефон</span>
-                        <a href="tel:+79001234567" style="color: white;">+7 (900) 123-45-67</a>
-                    </div>
-                    <div class="contact-item">
-                        <span class="contact-label" style="color: white;">Email</span>
-                        <a href="mailto:bag@treestore.ru" style="color: white;">bag@treestore.ru</a>
-                    </div>
-                    <div class="contact-item">
-                        <span class="contact-label" style="color: white;">Адрес</span>
-                        <span style="color: white;">г. Москва, Харьковский проезд, д. 5</span>
-                    </div>
-                    <div class="contact-item">
-                        <span class="contact-label" style="color: white;">Telegram</span>
-                        <a href="#" style="color: white;">@treestore</a>
-                    </div>
-                </div>
-                <p class="copyright" style="color: white;">© Treestore 2026</p>
-            </footer>
         </main>
     </div>
 </body>

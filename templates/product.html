@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block content %}
+<div class="product-page">
+    <div class="product-gallery">
+        {% if product.image_url %}
+            <img src="{{ product.image_url }}" alt="{{ product.name }}" class="product-main-img">
+        {% else %}
+            <img src="/static/image/placeholder.jpg" alt="{{ product.name }}" class="product-main-img">
+        {% endif %}
+    </div>
+
+    <div class="product-info-block">
+        <a href="/catalog" class="back-link">← Назад в каталог</a>
+
+        <h1 class="product-title">{{ product.name }}</h1>
+
+        {% if category %}
+            <div class="product-category">Категория: {{ category.name }}</div>
+        {% endif %}
+
+        <div class="product-price">
+            {{ "{:,.0f}".format(product.price).replace(",", " ") }} ₽
+        </div>
+
+        <div class="product-stock {% if product.stock <= 0 %}out{% endif %}">
+            {% if product.stock > 0 %}
+                В наличии: {{ product.stock }} шт.
+            {% else %}
+                Нет в наличии
+            {% endif %}
+        </div>
+
+        {% if product.height_cm or product.age_years %}
+        <table class="product-specs">
+            {% if product.height_cm %}
+                <tr><td>Высота</td><td>{{ product.height_cm }} см</td></tr>
+            {% endif %}
+            {% if product.age_years %}
+                <tr><td>Возраст саженца</td><td>{{ product.age_years }} лет</td></tr>
+            {% endif %}
+            {% if category %}
+                <tr><td>Категория</td><td>{{ category.name }}</td></tr>
+            {% endif %}
+        </table>
+        {% endif %}
+
+        {% if product.description %}
+            <p class="product-desc">{{ product.description }}</p>
+        {% endif %}
+
+        <a href="/add-to-cart/{{ product.id }}" class="btn-buy-lg">Добавить в корзину</a>
+    </div>
+</div>
+{% endblock %}
